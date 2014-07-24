@@ -1,11 +1,10 @@
-%p Params received
-%div
-  %p 
-    pub0=
-    =@pub0
-  %p 
-    page=
-    =@page
-  %p 
-    uid=
-    =@uid
+- if @offers.empty? 
+  %div.no_offers
+    No offers
+- else
+  - @offers.each do |offer|
+    %div.offer
+      %div.title= offer['title']
+      %div.payout= offer['payout']
+      %div.thumbnail= offer['thumbnail']['lowres']
+
