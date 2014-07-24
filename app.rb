@@ -29,6 +29,7 @@ post '/' do
   response = HTTParty.get(url)
   body = JSON.parse response.body
 
+  #handle response
   if response.code == 200 
     @offers = body["offers"]
     haml :offers
