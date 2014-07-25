@@ -2,7 +2,7 @@ require 'sinatra'
 require 'httparty'
 require_relative "helpers/utils"
 require_relative "conf/config"
-include Utils
+helpers Utils
 
 get '/' do
   haml :index
