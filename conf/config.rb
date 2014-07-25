@@ -9,5 +9,5 @@ configure do
   }
   set :format, "json"
   set :api_key, ENV['API_KEY']
-  set :api_endpoint, "http://api.sponsorpay.com/feed/v1/offers"
+  set :api_endpoint, "http://api.sponsorpay.com/feed/v1/offers.json"
 end

@@ -16,6 +16,13 @@ module Utils
   end
 
   def construct_url string_encoded, hash_key
-    "#{settings.api_endpoint}.json?#{string_encoded}&hashkey=#{hash_key}"
+    "#{settings.api_endpoint}?#{string_encoded}&hashkey=#{hash_key}"
+  end
+
+  def is_valid? response
+    sign = response.headers['X-Sponsorpay-Response-Signature']
+    my_sign = Digest::SHA1.hexdigest "#{response.body}#{settings.api_key}"
+
+    sign == my_sign
   end
 end

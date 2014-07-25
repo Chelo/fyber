@@ -27,16 +27,21 @@ post '/' do
 
   #make call
   response = HTTParty.get(url)
-  body = JSON.parse response.body
 
-  #handle response
-  if response.code == 200 
-    @offers = body["offers"]
-    
-    haml :offers
-  else
-    @message = body["message"]
-    @code = body["code"]
+  #check sign
+  unless is_valid?(response)
+    @message = "Invalid response"
     haml :index
+  else
+    body = JSON.parse response.body
+
+    #handle response
+    if response.code == 200 
+      @offers = body["offers"]
+      haml :offers
+    else
+      @message = body["message"]
+      haml :index
+    end
   end
 end
