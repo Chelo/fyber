@@ -4,7 +4,7 @@ configure do
     device_id: "2b6f0cc904d137be2e1730235f5664094b831186",
     locale: "de",
     ip: "109.235.143.113",
-    offet_types: 112,
+    offer_types: 112,
     os_version: 6.0
   }
   set :format, "json"

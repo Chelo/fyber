@@ -13,12 +13,12 @@
           %div.panel-body
             %div.row
               %div.col-md-2
-                %img{src: offer["thumbnail"].first.last, alt: "thumbnail image", width:150}
+                %img{src: offer["thumbnail"]["lowres"], alt: "thumbnail image", width:150}
               %div.col-md-10
                 %div.payout
                   Payout: #{offer['payout']}
                 %div.thumb
-                  Thumbnail: #{offer['thumbnail'].first.last}
+                  Thumbnail: #{offer['thumbnail']["lowres"]}
     %br
     %a.btn.btn-primary{href: "/"} Make other consult
 
