@@ -16,7 +16,7 @@ describe "APP" do
       response = last_response.body
       expect(response).to include("Please enter your params")
       expect(response).to include("Uid")
-      expect(response).to include("Pub0")
+      expect(response).to include("pub0")
       expect(response).to include("Page")
     end
   end
@@ -92,14 +92,13 @@ describe "APP" do
           message: "This is an error from the api"
         }
       end
-      it "should render error page" do
+      it "should render errors" do
           fake_response = []
           expect(HTTParty).to receive(:get).and_return(fake_response)
           expect(fake_response).to receive(:body).and_return(@response_body.to_json)
           expect(fake_response).to receive(:code).and_return(400)
           post "/", @params
           response =  last_response.body
-          expect(response).to include("ERROR_FROM_API")
           expect(response).to include("This is an error from the api")
       end
     end
