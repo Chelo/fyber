@@ -6,7 +6,6 @@ require 'json'
 module Utils
   def create_url data
     string_for_url = data.sort.map{|k| k.join("=")}.join("&")
-    puts string_for_url
     hash_key = hashkey_calculation string_for_url
     string_encoded = URI.encode string_for_url
     construct_url(string_encoded, hash_key)

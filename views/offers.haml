@@ -2,6 +2,7 @@
   %div.no_offers
     No offers
 - else
+  %p Offers
   - @offers.each do |offer|
     %div.offer
       %div.title= offer['title']
