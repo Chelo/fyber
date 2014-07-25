@@ -32,10 +32,11 @@ post '/' do
   #handle response
   if response.code == 200 
     @offers = body["offers"]
+    
     haml :offers
   else
     @message = body["message"]
     @code = body["code"]
-    haml :error
+    haml :index
   end
 end

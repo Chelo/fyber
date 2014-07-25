@@ -1,11 +1,24 @@
-- if @offers.empty? 
-  %div.no_offers
-    No offers
-- else
-  %p Offers
-  - @offers.each do |offer|
-    %div.offer
-      %div.title= offer['title']
-      %div.payout= offer['payout']
-      %div.thumbnail= offer['thumbnail']['lowres']
+%div.panel.panel-primary
+  %div.panel-heading
+    %h1 Offers
+  %div.panel-body
+    - if @offers.empty? 
+      %div.no_offers
+        %h2 No offers
+    - else
+      - @offers.each do |offer|
+        %div.offer.panel.panel-success
+          %div.panel-heading
+            %div.title= offer['title']
+          %div.panel-body
+            %div.row
+              %div.col-md-2
+                %img{src: offer["thumbnail"].first.last, alt: "thumbnail image", width:150}
+              %div.col-md-10
+                %div.payout
+                  Payout: #{offer['payout']}
+                %div.thumb
+                  Thumbnail: #{offer['thumbnail'].first.last}
+    %br
+    %a.btn.btn-primary{href: "/"} Make other consult
 

@@ -1,14 +1,28 @@
-%p Please enter your params:
-%form{method: "POST"}
-  %fieldset
-    %div
-      %label Uid:
-      %input{type: 'text', name: 'uid'}
-    %div
-      %label Pub0:
-      %input{type: 'text', name: 'pub0'}
-    %div
-      %label Page:
-      %input{type: 'text', name: 'page'}
-    %div
-      %input{type: 'submit', value: 'Send'}
+%div.row
+  %div.col-md-6.col-md-offset-3
+    - unless @message.nil? || @message.empty?
+      %div.alert.alert-danger.alert-dimissible{role: 'alert'}
+        %button.close{"type" => "button", "data-dismiss" => "alert"}
+          %span{"aria-hidden" => "true"} &times;
+          %span.sr-only Close
+        %p 
+          =@message
+    %h2.text-center Fyber Challenge
+    %div.jumbotron
+      %div.row
+        %div.col-md-offset-2
+          %p Please enter your params:
+          %form.form-horizontal{method: "POST", role:"form"}
+            %fieldset
+              %div.form-group
+                %div.col-md-8
+                  %input.form-control{type: 'text', name: 'uid', placeholder: "Uid"}
+              %div.form-group
+                %div.col-md-8
+                  %input.form-control{type: 'text', name: 'pub0', placeholder: "pub0"}
+              %div.form-group
+                %div.col-md-8
+                  %input.form-control{type: 'text', name: 'page', placeholder: "Page"}
+              %div.form-group
+                %div.col-md-3
+                  %button.btn.btn-primary.btn-lg.btn-block{type: 'submit'} Send
